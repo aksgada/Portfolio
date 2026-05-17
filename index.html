@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akshada Kute — Full-Stack Developer</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
   :root {
     --bg: #0a0a0f;
@@ -835,255 +834,11 @@
     background: var(--accent3);
     animation: pulse 2s ease-in-out infinite;
   }
-  /* ─── CONTACT SECTION ─── */
-  .contact-section { background: var(--surface); }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 60px;
-    align-items: start;
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(106,247,192,0.5); }
+    50% { box-shadow: 0 0 0 6px rgba(106,247,192,0); }
   }
-
-  .contact-info-side {}
-
-  .contact-info-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
-
-  .contact-info-desc {
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.8;
-    margin-bottom: 40px;
-  }
-
-  .contact-detail-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .contact-detail {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    text-decoration: none;
-    transition: transform 0.3s;
-  }
-  .contact-detail:hover { transform: translateX(6px); }
-
-  .contact-detail-icon {
-    width: 44px; height: 44px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
-    background: var(--bg);
-    flex-shrink: 0;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .contact-detail-icon::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(124,106,247,0.2), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .contact-detail:hover .contact-detail-icon {
-    border-color: var(--accent);
-    box-shadow: 0 0 16px rgba(124,106,247,0.3);
-  }
-  .contact-detail:hover .contact-detail-icon::before { opacity: 1; }
-
-  .contact-detail-text {}
-  .contact-detail-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--dim);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
-  .contact-detail-value {
-    font-size: 0.9rem;
-    color: var(--text);
-  }
-
-  /* ─── FORM ─── */
-  .contact-form-side {}
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: relative;
-  }
-
-  .form-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--dim);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .form-input,
-  .form-textarea {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-    color: var(--text);
-    font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
-    outline: none;
-    transition: all 0.3s;
-    resize: none;
-    width: 100%;
-  }
-  .form-input::placeholder,
-  .form-textarea::placeholder {
-    color: var(--dim);
-    font-size: 0.88rem;
-  }
-  .form-input:focus,
-  .form-textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(124,106,247,0.12);
-    background: rgba(124,106,247,0.03);
-  }
-  .form-input:focus + .form-focus-line,
-  .form-textarea:focus + .form-focus-line {
-    transform: scaleX(1);
-  }
-
-  .form-textarea { min-height: 130px; line-height: 1.7; }
-
-  .form-submit {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .btn-send {
-    padding: 15px 36px;
-    background: linear-gradient(135deg, var(--accent), #9b8bfb);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.35s;
-    box-shadow: 0 0 28px rgba(124,106,247,0.35);
-    display: flex; align-items: center; gap: 10px;
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-send::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .btn-send:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 40px rgba(124,106,247,0.55);
-  }
-  .btn-send:hover::before { opacity: 1; }
-  .btn-send:active { transform: translateY(0); }
-  .btn-send:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  .btn-send .send-arrow {
-    transition: transform 0.3s;
-  }
-  .btn-send:hover .send-arrow { transform: translateX(4px); }
-
-  /* Status message */
-  .form-status {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    padding: 10px 16px;
-    border-radius: 6px;
-    display: none;
-    align-items: center;
-    gap: 8px;
-  }
-  .form-status.success {
-    display: flex;
-    background: rgba(106,247,192,0.08);
-    border: 1px solid rgba(106,247,192,0.25);
-    color: var(--accent3);
-  }
-  .form-status.error {
-    display: flex;
-    background: rgba(247,106,106,0.08);
-    border: 1px solid rgba(247,106,106,0.25);
-    color: #f76a6a;
-  }
-
-  /* spinner */
-  .spinner {
-    width: 14px; height: 14px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-    display: none;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .btn-send.loading .spinner { display: block; }
-  .btn-send.loading .send-text { display: none; }
-  .btn-send.loading .send-arrow { display: none; }
-
-  /* EmailJS setup notice */
-  .setup-notice {
-    background: rgba(247,162,106,0.08);
-    border: 1px solid rgba(247,162,106,0.2);
-    border-radius: 8px;
-    padding: 14px 18px;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--accent2);
-    letter-spacing: 0.04em;
-    line-height: 1.7;
-  }
-  .setup-notice strong { color: var(--text); }
-
-  @media (max-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-    .form-row { grid-template-columns: 1fr; }
-  }
-
+</style>
 </head>
 <body>
 
@@ -1100,7 +855,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="mailto:akshada1604@gmail.com">Contact</a></li>
   </ul>
 </nav>
 
@@ -1322,7 +1077,7 @@
         <div class="edu-card">
           <div class="edu-year">2018 — 2021</div>
           <div class="edu-degree">Diploma — Computer Engineering</div>
-          <div class="edu-school">Government Polytechnic / Technical Institute</div>
+          <div class="edu-school">MET College of Polytechnic nashik </div>
           <div class="edu-cgpa" style="color:var(--accent2);">Completed</div>
         </div>
       </div>
@@ -1352,82 +1107,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <div class="divider"></div>
-  <section class="contact-section" id="contact">
-    <div class="section-label">Let's Connect</div>
-    <h2 class="section-title">Get In Touch</h2>
-
-    <div class="contact-grid reveal">
-      <!-- Left: info -->
-      <div class="contact-info-side">
-        <div class="contact-info-title">Have a project in mind or want to collaborate?</div>
-        <p class="contact-info-desc">
-          I'm always open to discussing new opportunities, interesting projects, or just a friendly hello. Fill in the form and I'll get back to you as soon as possible.
-        </p>
-        <div class="contact-detail-list">
-          <a href="mailto:akshada1604@gmail.com" class="contact-detail">
-            <div class="contact-detail-icon">✉</div>
-            <div class="contact-detail-text">
-              <div class="contact-detail-label">Email</div>
-              <div class="contact-detail-value">akshada1604@gmail.com</div>
-            </div>
-          </a>
-          <a href="tel:+919763285969" class="contact-detail">
-            <div class="contact-detail-icon">☎</div>
-            <div class="contact-detail-text">
-              <div class="contact-detail-label">Phone</div>
-              <div class="contact-detail-value">+91 97632 85969</div>
-            </div>
-          </a>
-          <a href="https://linkedin.com/in/akshada-kute/" target="_blank" class="contact-detail">
-            <div class="contact-detail-icon">in</div>
-            <div class="contact-detail-text">
-              <div class="contact-detail-label">LinkedIn</div>
-              <div class="contact-detail-value">linkedin.com/in/akshada-kute</div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Right: form -->
-      <div class="contact-form-side">
-        <div class="setup-notice" id="setupNotice">
-          ⚙️ <strong>Setup needed:</strong> This form uses EmailJS (free). Replace <strong>YOUR_PUBLIC_KEY</strong>, <strong>YOUR_SERVICE_ID</strong>, and <strong>YOUR_TEMPLATE_ID</strong> in the script below with your EmailJS credentials. Takes ~5 min at <strong>emailjs.com</strong>.
-        </div>
-
-        <div class="contact-form" id="contactForm" style="margin-top:24px;">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="from_name">Your Name</label>
-              <input class="form-input" type="text" id="from_name" name="from_name" placeholder="Jane Smith" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="from_email">Your Email</label>
-              <input class="form-input" type="email" id="from_email" name="from_email" placeholder="jane@example.com" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="subject">Subject</label>
-            <input class="form-input" type="text" id="subject" name="subject" placeholder="Project Collaboration / Job Opportunity...">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea>
-          </div>
-          <div class="form-submit">
-            <button class="btn-send" type="button" id="sendBtn" onclick="sendEmail()">
-              <div class="spinner"></div>
-              <span class="send-text">Send Message</span>
-              <span class="send-arrow">→</span>
-            </button>
-            <div class="form-status" id="formStatus"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </div><!-- /wrapper -->
 
 <!-- FOOTER -->
@@ -1442,92 +1121,14 @@
 </footer>
 
 <script>
-  // ─── EMAILJS CONFIG ───────────────────────────────────────────
-  // Step 1: Sign up free at https://www.emailjs.com
-  // Step 2: Create a Gmail service → copy your Service ID
-  // Step 3: Create an Email Template with variables:
-  //         {{from_name}}, {{from_email}}, {{subject}}, {{message}}
-  //         Set "To Email" = akshada1604@gmail.com
-  // Step 4: Copy your Public Key from Account → API Keys
-  // Step 5: Replace the three placeholders below:
-
-  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'abc123XYZ'
-  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_xxxxxx'
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xxxxxx'
-
-  // Init EmailJS
-  (function() {
-    if (typeof emailjs !== 'undefined') {
-      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-    }
-  })();
-
-  function sendEmail() {
-    const btn    = document.getElementById('sendBtn');
-    const status = document.getElementById('formStatus');
-
-    const name    = document.getElementById('from_name').value.trim();
-    const email   = document.getElementById('from_email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    // Basic validation
-    if (!name || !email || !message) {
-      status.className = 'form-status error';
-      status.textContent = '✕ Please fill in all required fields.';
-      return;
-    }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      status.className = 'form-status error';
-      status.textContent = '✕ Please enter a valid email address.';
-      return;
-    }
-
-    // Check if keys are still placeholders
-    if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
-      status.className = 'form-status error';
-      status.textContent = '⚙ Please configure your EmailJS credentials first (see setup notice above).';
-      return;
-    }
-
-    // Loading state
-    btn.classList.add('loading');
-    btn.disabled = true;
-    status.className = 'form-status';
-    status.style.display = 'none';
-
-    const templateParams = { from_name: name, from_email: email, subject: subject || 'Portfolio Contact', message };
-
-    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-      .then(() => {
-        btn.classList.remove('loading');
-        btn.disabled = false;
-        status.className = 'form-status success';
-        status.textContent = '✓ Message sent! I\'ll get back to you soon.';
-        // Reset form
-        document.getElementById('from_name').value = '';
-        document.getElementById('from_email').value = '';
-        document.getElementById('subject').value = '';
-        document.getElementById('message').value = '';
-      })
-      .catch((err) => {
-        btn.classList.remove('loading');
-        btn.disabled = false;
-        status.className = 'form-status error';
-        status.textContent = '✕ Something went wrong. Please try again or email directly.';
-        console.error('EmailJS error:', err);
-      });
-  }
-
-  // ─── CURSOR GLOW ─────────────────────────────────────────────
+  // Cursor glow
   const glow = document.getElementById('cursorGlow');
   document.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
-    glow.style.top  = e.clientY + 'px';
+    glow.style.top = e.clientY + 'px';
   });
 
-  // ─── SCROLL REVEAL ───────────────────────────────────────────
+  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1538,19 +1139,12 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Stagger grid children
+  // Stagger children of revealed grids
   document.querySelectorAll('.skills-grid, .projects-grid, .soft-skills-grid').forEach(grid => {
-    Array.from(grid.children).forEach((child, i) => {
+    const children = grid.children;
+    Array.from(children).forEach((child, i) => {
       child.style.transitionDelay = `${i * 0.1}s`;
     });
-  });
-
-  // Enter key submits form (but not in textarea)
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && e.target.id !== 'message') {
-      const active = document.activeElement;
-      if (['from_name','from_email','subject'].includes(active?.id)) sendEmail();
-    }
   });
 </script>
 </body>
